@@ -5,16 +5,21 @@ i = 1
 j = 1
 class Conta():    
     def __init__(self):  
+        self.finalizar = ""
         self.i = [] 
         self.nrConta = []      
         self.titular = []        
         self.saldo = []        
         self.limite = []   
-    def info(self, i):     
-        print("O número da conta é: " + str(self.nrConta[i])),
-        print("Seu titular é: " + self.titular[i]),
-        print("O saldo atual é: " + str(self.saldo[i])),
-        print("E o limite atual é: " + str(self.limite[i]))  
+        self.conta = 0
+    def info(self):  
+        self.conta = int(input("Digite o número da conta que deseja verificar as informações: "))
+        for i in self.nrConta:
+            print("O número da conta é: " + self.nrConta(i)),
+            print("Seu titular é: " + self.titular(i)),
+            print("O saldo atual é: " + self.saldo(i)),
+            print("E o limite atual é: " + self.limite(i))
+        self.finalizar = input("Pressione Enter para continuar!") 
     def depositar(self, valorDepositar):        
         self.valorDepositar = valorDepositar        
         self.saldo = self.valor + self.saldo        
@@ -30,17 +35,17 @@ class Conta():
             print("Transação efetuada com sucesso. Você está utilizando R$" + self.saldo + " do seu limite")        
         else:            
             print("Transação efetuada com sucesso") 
-    def criarConta(self):
+    def criarConta(self, i):
         #if self.nrConta in aleatorio:
         #    print("Conta existente")
         #else:
-        i = 1
         self.nrConta.append(i)
         self.titular.append(str(input("Qual o nome do titular da conta: ")))
         self.saldo.append(int(input("Deseja incluir quanto em dinheiro na conta: ")))
         self.limite.append(200)
         os.system('cls')
         print("Aguarde, estamos efetuando seu cadastro")
+        print(i)
         time.sleep(5)
         os.system('cls')
         print("Sua conta foi criada!!!"),
@@ -60,11 +65,11 @@ while(j < 1000):
     print("4 - Sair")
     opcao = int(input("Selecione uma das opções acima: "))
     if(opcao == 1):
-        conta.criarConta()
+        conta.criarConta(i)
     if(opcao == 2):
         conta.sacar()
     if(opcao == 3):
-        conta.info(0)
+        conta.info()
     if(opcao == 4):
         exit
     j = j + 1
