@@ -44,9 +44,6 @@ class Conta():
         else:            
             print("Transação efetuada com sucesso") 
     def criarConta(self, i):
-        #if self.nrConta in aleatorio:
-        #    print("Conta existente")
-        #else:
         self.nrConta.append(i)
         self.titular.append(str(input("Qual o nome do titular da conta: ")))
         self.saldo.append(int(input("Deseja incluir quanto em dinheiro na conta: ")))
